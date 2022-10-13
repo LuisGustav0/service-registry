@@ -1,0 +1,14 @@
+server:
+  port: 8761
+
+ead:
+  serviceRegistry:
+    username: serviceRegistry
+    password: ${EUREKA_PASSWORD}
+
+eureka:
+  client:
+    register-with-eureka: false # Nao registrar ele mesmo, pra nao ser o client
+    fetch-registry: false # Nao buscar um registro no eureka
+    service-url:
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
